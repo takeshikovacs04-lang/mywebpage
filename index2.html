@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            transition: 0.3s;
+            padding: 40px;
+        }
+
+        .dark-mode {
+            background-color: #222;
+            color: white;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input {
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-top: 20px;
+            display: inline-block;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>My Interactive Web Page</h1>
+
+    <!-- Dark Mode Toggle -->
+    <button onclick="toggleMode()">Toggle Dark Mode</button>
+
+    <!-- Counter -->
+    <div class="card">
+        <h2>Click Counter</h2>
+        <p id="count">0</p>
+        <button onclick="increaseCounter()">Click Me</button>
+    </div>
+
+    <!-- Live Text -->
+    <div class="card">
+        <h2>Live Text Display</h2>
+        <input type="text" id="userInput" placeholder="Type something...">
+        <p>You typed: <span id="displayText"></span></p>
+    </div>
+
+    <!-- Alert Button -->
+    <button onclick="showMessage()">Show Welcome Message</button>
+
+    <script>
+        // Dark Mode Function
+        function toggleMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+
+        // Counter Function
+        let counter = 0;
+        function increaseCounter() {
+            counter++;
+            document.getElementById("count").innerText = counter;
+        }
+
+        // Live Text Function
+        document.getElementById("userInput").addEventListener("input", function() {
+            document.getElementById("displayText").innerText = this.value;
+        });
+
+        // Alert Function
+        function showMessage() {
+            alert("Welcome to my interactive website!");
+        }
+    </script>
+
+</body>
+</html>
