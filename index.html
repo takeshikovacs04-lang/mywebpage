@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Interactive Website</title>
+    <title>My First Cloud Web Page</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             transition: 0.3s;
             padding: 40px;
+            background-color: #f4f4f4;
         }
 
         .dark-mode {
@@ -20,50 +22,85 @@
             margin: 10px;
             font-size: 16px;
             cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            transition: 0.3s;
         }
 
-        input {
-            padding: 8px;
-            font-size: 16px;
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        img {
+            margin-top: 15px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        img:hover {
+            transform: scale(1.1);
         }
 
         .card {
-            border: 1px solid #ccc;
+            background: white;
             padding: 20px;
-            margin-top: 20px;
-            display: inline-block;
+            margin: 20px auto;
+            width: 300px;
             border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .dark-mode .card {
+            background: #333;
         }
     </style>
 </head>
+
 <body>
 
-    <h1>My Interactive Web Page</h1>
+    <h1>My First Cloud Web Page</h1>
+    <p>Welcome to my interactive web page hosted on the cloud!</p>
 
-    <!-- Dark Mode Toggle -->
+    <!-- Dark Mode Button -->
     <button onclick="toggleMode()">Toggle Dark Mode</button>
 
-    <!-- Counter -->
+    <!-- Personalized Greeting -->
     <div class="card">
-        <h2>Click Counter</h2>
+        <h3>Enter Your Name</h3>
+        <input type="text" id="nameInput" placeholder="Type your name">
+        <button onclick="showGreeting()">Submit</button>
+        <p id="greeting"></p>
+    </div>
+
+    <!-- Click Counter -->
+    <div class="card">
+        <h3>Click Counter</h3>
         <p id="count">0</p>
-        <button onclick="increaseCounter()">Click Me</button>
+        <button onclick="increaseCounter()">Click Me!</button>
     </div>
 
-    <!-- Live Text -->
-    <div class="card">
-        <h2>Live Text Display</h2>
-        <input type="text" id="userInput" placeholder="Type something...">
-        <p>You typed: <span id="displayText"></span></p>
-    </div>
+    <!-- Image with Hover Effect -->
+    <img src="https://via.placeholder.com/150" alt="Sample Image">
 
-    <!-- Alert Button -->
-    <button onclick="showMessage()">Show Welcome Message</button>
+    <br><br>
+
+    <a href="https://www.google.com" target="_blank">
+        <button>Visit Google</button>
+    </a>
 
     <script>
-        // Dark Mode Function
+        // Dark Mode
         function toggleMode() {
             document.body.classList.toggle("dark-mode");
+        }
+
+        // Greeting Function
+        function showGreeting() {
+            let name = document.getElementById("nameInput").value;
+            document.getElementById("greeting").innerText =
+                "Hello " + name + "! Welcome to my cloud website!";
         }
 
         // Counter Function
@@ -71,16 +108,6 @@
         function increaseCounter() {
             counter++;
             document.getElementById("count").innerText = counter;
-        }
-
-        // Live Text Function
-        document.getElementById("userInput").addEventListener("input", function() {
-            document.getElementById("displayText").innerText = this.value;
-        });
-
-        // Alert Function
-        function showMessage() {
-            alert("Welcome to my interactive website!");
         }
     </script>
 
